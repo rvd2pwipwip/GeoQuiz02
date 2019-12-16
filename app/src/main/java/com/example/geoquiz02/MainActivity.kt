@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     /////declare ui element variables
     private lateinit var trueButton: Button
     private lateinit var falseButton: Button
+    private lateinit var prevButton: Button
     private lateinit var nextButton: Button
     private lateinit var questionTextView: TextView
 
@@ -34,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         /////retrieve and assign inflated ui elements
         trueButton = findViewById(R.id.true_button)
         falseButton = findViewById(R.id.false_button)
+        prevButton = findViewById(R.id.prev_button)
         nextButton = findViewById(R.id.next_button)
         questionTextView =findViewById(R.id.question_text_view)
 
@@ -44,6 +46,15 @@ class MainActivity : AppCompatActivity() {
 
         falseButton.setOnClickListener { view: View ->
             checkAnswer(false)
+        }
+
+        prevButton.setOnClickListener {
+            if (currentIndex == 0) {
+                currentIndex = questionBank.size - 1
+            } else {
+                currentIndex = (currentIndex - 1) % questionBank.size
+            }
+            updateQuestion()
         }
 
         nextButton.setOnClickListener {
