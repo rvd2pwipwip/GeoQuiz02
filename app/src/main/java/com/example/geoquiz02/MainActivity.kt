@@ -122,7 +122,6 @@ class MainActivity : AppCompatActivity() {
 
         val messageResId = if (userAnswer == correctAnswer) {
             currentScore += 1
-            Log.d(TAG, "counter: ${currentScore}")
             R.string.correct_toast
         } else {
             R.string.incorrect_toast
@@ -131,6 +130,8 @@ class MainActivity : AppCompatActivity() {
         val toast = Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
         toast.setGravity(Gravity.CENTER_VERTICAL or Gravity.CENTER_HORIZONTAL, 0, -300)
         toast.show()
+
+        Log.d(TAG, "score: ${currentScore}")
 
         if (currentCounter == questionBank.size) {
             gradeQuiz()
