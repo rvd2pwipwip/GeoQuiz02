@@ -22,7 +22,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b359f8d0-9e6e-4cbf-97b2-7cf8ce78d38f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout-land/activity_main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -34,7 +33,6 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/geoquiz02/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/geoquiz02/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,29 +72,29 @@
           <provider editor-type-id="android-designer2" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/geoquiz02/MainActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="101" column="5" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
+            <state relative-caret-position="152">
+              <caret line="124" column="47" selection-start-line="124" selection-start-column="47" selection-end-line="124" selection-end-column="47" />
               <folding>
-                <element signature="e#680#707#1" expanded="true" />
-                <element signature="e#733#757#1" expanded="true" />
-                <element signature="e#783#808#1" expanded="true" />
-                <element signature="e#835#859#1" expanded="true" />
-                <element signature="e#886#912#1" expanded="true" />
-                <element signature="e#938#960#1" expanded="true" />
-                <element signature="e#2722#2744#0" expanded="true" />
-                <element signature="e#2774#2798#0" expanded="true" />
+                <element signature="e#815#842#1" expanded="true" />
+                <element signature="e#868#892#1" expanded="true" />
+                <element signature="e#918#943#1" expanded="true" />
+                <element signature="e#970#994#1" expanded="true" />
+                <element signature="e#1021#1047#1" expanded="true" />
+                <element signature="e#1073#1095#1" expanded="true" />
+                <element signature="e#3512#3534#0" expanded="true" />
+                <element signature="e#3564#3588#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-land/activity_main.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
+            <state relative-caret-position="600">
               <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
               <folding>
                 <element signature="e#421#449#0" expanded="true" />
@@ -145,8 +143,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/geoquiz02/Question.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/geoquiz02/MainActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-land/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/geoquiz02/MainActivity.kt" />
       </list>
     </option>
   </component>
@@ -430,14 +428,28 @@
       <option name="project" value="LOCAL" />
       <updated>1576456667700</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="chapter 3 log activity lifecycle events and added landscape frame layout">
+      <created>1576496937759</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1576496937759</updated>
+    </task>
+    <task id="LOCAL-00007" summary="chapter 3 challenge 1 prevented repeat answers and toggled answer/nav buttons">
+      <created>1576497653804</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1576497653804</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3840" y="23" width="1920" height="1057" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" visible="true" weight="0.32747602" />
+      <window_info content_ui="combo" id="Project" visible="true" weight="0.23375931" />
       <window_info id="Structure" side_tool="true" />
       <window_info id="Build Variants" side_tool="true" />
       <window_info id="Image Layers" />
@@ -447,7 +459,7 @@
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Run" />
-      <window_info anchor="bottom" id="Logcat" sideWeight="0.49946752" visible="true" weight="0.23834197" />
+      <window_info active="true" anchor="bottom" id="Logcat" sideWeight="0.49946752" visible="true" weight="0.23834197" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="TODO" />
       <window_info anchor="bottom" id="Android Profiler" />
@@ -461,7 +473,7 @@
       <window_info anchor="right" id="Gradle" />
       <window_info anchor="right" id="Theme Preview" />
       <window_info anchor="right" id="Palette&#9;" />
-      <window_info active="true" anchor="right" id="Preview" visible="true" weight="0.32960597" />
+      <window_info anchor="right" id="Preview" weight="0.32960597" />
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
@@ -470,7 +482,9 @@
     <MESSAGE value="chapter 2 challenge 1 added click listener to question TextView" />
     <MESSAGE value="chapter 2 challenge 2 added previous button" />
     <MESSAGE value="chapter 2 challenge 3 changed next and previous buttons to ImageButton objects" />
-    <option name="LAST_COMMIT_MESSAGE" value="chapter 2 challenge 3 changed next and previous buttons to ImageButton objects" />
+    <MESSAGE value="chapter 3 log activity lifecycle events and added landscape frame layout" />
+    <MESSAGE value="chapter 3 challenge 1 prevented repeat answers and toggled answer/nav buttons" />
+    <option name="LAST_COMMIT_MESSAGE" value="chapter 3 challenge 1 prevented repeat answers and toggled answer/nav buttons" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/geoquiz02/Question.kt">
@@ -487,23 +501,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/geoquiz02/MainActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="101" column="5" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
-          <folding>
-            <element signature="e#680#707#1" expanded="true" />
-            <element signature="e#733#757#1" expanded="true" />
-            <element signature="e#783#808#1" expanded="true" />
-            <element signature="e#835#859#1" expanded="true" />
-            <element signature="e#886#912#1" expanded="true" />
-            <element signature="e#938#960#1" expanded="true" />
-            <element signature="e#2722#2744#0" expanded="true" />
-            <element signature="e#2774#2798#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -517,7 +514,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-land/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
+        <state relative-caret-position="600">
           <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
           <folding>
             <element signature="e#421#449#0" expanded="true" />
@@ -527,6 +524,23 @@
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/geoquiz02/MainActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="124" column="47" selection-start-line="124" selection-start-column="47" selection-end-line="124" selection-end-column="47" />
+          <folding>
+            <element signature="e#815#842#1" expanded="true" />
+            <element signature="e#868#892#1" expanded="true" />
+            <element signature="e#918#943#1" expanded="true" />
+            <element signature="e#970#994#1" expanded="true" />
+            <element signature="e#1021#1047#1" expanded="true" />
+            <element signature="e#1073#1095#1" expanded="true" />
+            <element signature="e#3512#3534#0" expanded="true" />
+            <element signature="e#3564#3588#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

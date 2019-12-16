@@ -32,6 +32,8 @@ class MainActivity : AppCompatActivity() {
         Question(R.string.question_asia, true))
 
     private var currentIndex = 0
+    private var currentCounter = 0
+    private var currentScore = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -111,10 +113,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkAnswer(userAnswer: Boolean) {
+
+        currentCounter += 1
+        Log.d(TAG, "counter: ${currentCounter}")
+
         toggleButtons()
         val correctAnswer = questionBank[currentIndex].answer
 
         val messageResId = if (userAnswer == correctAnswer) {
+            currentScore += 1
+            Log.d(TAG, "counter: ${currentScore}")
             R.string.correct_toast
         } else {
             R.string.incorrect_toast
@@ -123,6 +131,26 @@ class MainActivity : AppCompatActivity() {
         val toast = Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
         toast.setGravity(Gravity.CENTER_VERTICAL or Gravity.CENTER_HORIZONTAL, 0, -300)
         toast.show()
+
+        if (currentCounter == questionBank.size) {
+            gradeQuiz()
+        }
+    }
+
+    private fun gradeQuiz() {
+        var message: String
+        if (currentScore != 0) {
+            val grade = (currentScore.toDouble() / questionBank.size * 100).toInt()
+            message = "You got $grade%"
+        } else {
+            message = "You totally flunked with 0%"
+        }
+        val toast = Toast.makeText(this, message, Toast.LENGTH_SHORT)
+        toast.setGravity(Gravity.CENTER_VERTICAL or Gravity.CENTER_HORIZONTAL, 0, -300)
+        toast.show()
+
+        currentScore = 0
+        currentCounter = 0
     }
 
     private fun toggleAnswerButtons() {
