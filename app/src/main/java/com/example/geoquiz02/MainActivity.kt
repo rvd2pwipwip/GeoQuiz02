@@ -61,11 +61,13 @@ class MainActivity : AppCompatActivity() {
                 currentIndex = (currentIndex - 1) % questionBank.size
             }
             updateQuestion()
+            toggleButtons()
         }
 
         nextButton.setOnClickListener {
             currentIndex = (currentIndex + 1) % questionBank.size
             updateQuestion()
+            toggleButtons()
         }
 
         questionTextView.setOnClickListener {
@@ -74,6 +76,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         updateQuestion()
+        toggleNavButtons()
     }
 
     override fun onStart() {
@@ -108,6 +111,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkAnswer(userAnswer: Boolean) {
+        toggleButtons()
         val correctAnswer = questionBank[currentIndex].answer
 
         val messageResId = if (userAnswer == correctAnswer) {
@@ -119,5 +123,20 @@ class MainActivity : AppCompatActivity() {
         val toast = Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
         toast.setGravity(Gravity.CENTER_VERTICAL or Gravity.CENTER_HORIZONTAL, 0, -300)
         toast.show()
+    }
+
+    private fun toggleAnswerButtons() {
+        trueButton.isEnabled = !trueButton.isEnabled
+        falseButton.isEnabled = !falseButton.isEnabled
+    }
+
+    private fun toggleNavButtons() {
+        prevButton.isEnabled = !prevButton.isEnabled
+        nextButton.isEnabled = !nextButton.isEnabled
+    }
+
+    private fun toggleButtons() {
+        toggleAnswerButtons()
+        toggleNavButtons()
     }
 }
