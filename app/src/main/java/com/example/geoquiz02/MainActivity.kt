@@ -3,6 +3,7 @@ package com.example.geoquiz02
 import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import android.view.Gravity
 import android.view.View
@@ -14,6 +15,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 
 private const val TAG = "MainActivity"
+
+/////key-value pairs to be stored in onSaveInstanceState Bundle
+private const val KEY_INDEX = "index"
+private const val KEY_COUNTER = "counter"
+private const val KEY_SCORE = "score"
+private const val KEY_MODE = "mode"
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,13 +37,24 @@ class MainActivity : AppCompatActivity() {
         ViewModelProviders.of(this).get(QuizViewModel::class.java)
     }
 
-//    private var counter = 0
-//    private var score = 0
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate(Bundle?) called")
         setContentView(R.layout.activity_main)
+
+        /////In onCreate(Bundle?), check for values. If they exist, assign them to their respective value name.
+        /////If a value with the key "value" does not exist in the bundle, or if the bundle object is null, set its default value
+        val currentIndex = savedInstanceState?.getInt(KEY_INDEX, 0) ?: 0
+        quizViewModel.currentIndex = currentIndex
+
+        val currentScore = savedInstanceState?.getInt(KEY_SCORE, 0) ?: 0
+        quizViewModel.currentScore = currentScore
+
+        val currentCounter = savedInstanceState?.getInt(KEY_SCORE,0) ?: 0
+        quizViewModel.currentCounter = currentCounter
+
+        val currentMode = savedInstanceState?.getBoolean(KEY_MODE,true) ?: true
+        quizViewModel.answerMode = currentMode
 
 //        /////associate the activity with an instance of QuizViewModel
 //        val provider: ViewModelProvider = ViewModelProviders.of(this)
@@ -93,6 +111,16 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         Log.d(TAG, "onPause() called")
+    }
+
+    /////override onSaveInstanceState(Bundle) to write the value of currentIndex to the bundle with the constant as its key
+    override fun onSaveInstanceState(savedInstanceState: Bundle) {
+        super.onSaveInstanceState(savedInstanceState)
+        Log.i(TAG,"onSaveInstanceState")
+        savedInstanceState.putInt(KEY_INDEX, quizViewModel.currentIndex)
+        savedInstanceState.putInt(KEY_COUNTER, quizViewModel.currentCounter)
+        savedInstanceState.putInt(KEY_SCORE, quizViewModel.currentScore)
+        savedInstanceState.putBoolean(KEY_MODE, quizViewModel.answerMode)
     }
 
     override fun onStop() {
