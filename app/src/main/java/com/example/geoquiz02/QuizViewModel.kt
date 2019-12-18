@@ -1,9 +1,9 @@
 package com.example.geoquiz02
 
-import android.util.Log
+//import android.util.Log
 import androidx.lifecycle.ViewModel
 
-private const val TAG = "QuizViewModel"
+//private const val TAG = "QuizViewModel"
 
 class QuizViewModel : ViewModel() {
 
@@ -41,10 +41,10 @@ class QuizViewModel : ViewModel() {
         get() = questionBank.size
 
     fun moveToPrevious() {
-        if (currentIndex == 0) {
-            currentIndex = questionBank.size - 1
+        currentIndex = if (currentIndex == 0) {
+            questionBank.size - 1
         } else {
-            currentIndex = (currentIndex - 1) % questionBank.size
+            (currentIndex - 1) % questionBank.size
         }
     }
 

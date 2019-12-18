@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
@@ -21,13 +21,15 @@
             android:id="@+id/true_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/true_button" />
+            android:text="@string/true_button"
+            tools:ignore="ButtonStyle" />
 
         <Button
             android:id="@+id/false_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/false_button" />
+            android:text="@string/false_button"
+            tools:ignore="ButtonStyle" />
 
     </LinearLayout>
 
@@ -36,14 +38,16 @@
         android:id="@+id/prev_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|left"
-        android:src="@drawable/arrow_left"/>
+        android:layout_gravity="bottom|start"
+        android:src="@drawable/arrow_left"
+        android:contentDescription="@string/content_description_previous" />
 
     <ImageButton
         android:id="@+id/next_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:src="@drawable/arrow_right" />
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/arrow_right"
+        android:contentDescription="@string/content_description_next" />
 
-</FrameLayout>
+</merge>

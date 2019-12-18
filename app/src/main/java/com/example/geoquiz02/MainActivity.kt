@@ -1,9 +1,7 @@
 package com.example.geoquiz02
 
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import android.view.Gravity
 import android.view.View
@@ -11,7 +9,6 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 
 private const val TAG = "MainActivity"
@@ -168,12 +165,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun gradeQuiz() {
-        var message: String
-        if (quizViewModel.currentScore != 0) {
+        val message: String
+        message = if (quizViewModel.currentScore != 0) {
             val grade = (quizViewModel.currentScore.toDouble() / quizViewModel.currentSize * 100).toInt()
-            message = "You got $grade%"
+            "You got $grade%"
         } else {
-            message = "You totally flunked with 0%"
+            "You totally flunked with 0%"
         }
         val toast = Toast.makeText(this, message, Toast.LENGTH_SHORT)
         toast.setGravity(Gravity.CENTER_VERTICAL or Gravity.CENTER_HORIZONTAL, 0, -200)
@@ -184,7 +181,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUIMode() {
-        if (quizViewModel.answerMode == true) {
+        if (quizViewModel.answerMode) {
             trueButton.isEnabled = true
             falseButton.isEnabled = true
             nextButton.isEnabled = false
