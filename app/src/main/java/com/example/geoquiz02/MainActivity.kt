@@ -10,6 +10,8 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 
 private const val TAG = "MainActivity"
 
@@ -22,23 +24,24 @@ class MainActivity : AppCompatActivity() {
     private lateinit var nextButton: ImageButton
     private lateinit var questionTextView: TextView
 
-    /////call Question class to create a list of Question objects
-    private val questionBank = listOf(
-        Question(R.string.question_australia, true),
-        Question(R.string.question_oceans, true),
-        Question(R.string.question_mideast, false),
-        Question(R.string.question_africa, false),
-        Question(R.string.question_americas, true),
-        Question(R.string.question_asia, true))
+    /////by lazy allows quizViewModel property to be a val instead of a var
+    /////calculation and assignment will not happen until the first time you access quizViewModel
+    private val quizViewModel: QuizViewModel by lazy {
+        ViewModelProviders.of(this).get(QuizViewModel::class.java)
+    }
 
-    private var currentIndex = 0
-    private var currentCounter = 0
-    private var currentScore = 0
+//    private var counter = 0
+//    private var score = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate(Bundle?) called")
         setContentView(R.layout.activity_main)
+
+//        /////associate the activity with an instance of QuizViewModel
+//        val provider: ViewModelProvider = ViewModelProviders.of(this)
+//        val quizViewModel = provider.get(QuizViewModel::class.java)
+        Log.d(TAG, "Got a QuizViewModel: $quizViewModel")
 
         /////retrieve and assign inflated ui elements
         trueButton = findViewById(R.id.true_button)
@@ -57,28 +60,24 @@ class MainActivity : AppCompatActivity() {
         }
 
         prevButton.setOnClickListener {
-            if (currentIndex == 0) {
-                currentIndex = questionBank.size - 1
-            } else {
-                currentIndex = (currentIndex - 1) % questionBank.size
-            }
+            quizViewModel.moveToPrevious()
             updateQuestion()
-            toggleButtons()
+            quizViewModel.answerMode = true
         }
 
         nextButton.setOnClickListener {
-            currentIndex = (currentIndex + 1) % questionBank.size
+            quizViewModel.moveToNext()
+            quizViewModel.answerMode = true
             updateQuestion()
-            toggleButtons()
         }
 
         questionTextView.setOnClickListener {
-            currentIndex = (currentIndex + 1) % questionBank.size
+            quizViewModel.moveToNext()
+            quizViewModel.answerMode = true
             updateQuestion()
         }
 
         updateQuestion()
-        toggleNavButtons()
     }
 
     override fun onStart() {
@@ -108,64 +107,67 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateQuestion() {
         /////use currentIndex to set the question text
-        val questionTextResId = questionBank[currentIndex].textResId
+        val questionTextResId = quizViewModel.currentQuestionText
         questionTextView.setText(questionTextResId)
+        setUIMode()
     }
 
     private fun checkAnswer(userAnswer: Boolean) {
 
-        currentCounter += 1
-        Log.d(TAG, "counter: ${currentCounter}")
+        quizViewModel.currentCounter += 1
+        Log.d(TAG, "counter: ${quizViewModel.currentCounter}")
 
-        toggleButtons()
-        val correctAnswer = questionBank[currentIndex].answer
+        quizViewModel.answerMode = false
+        setUIMode()
+        val correctAnswer = quizViewModel.currentQuestionAnswer
 
         val messageResId = if (userAnswer == correctAnswer) {
-            currentScore += 1
+            quizViewModel.currentScore += 1
             R.string.correct_toast
         } else {
             R.string.incorrect_toast
         }
 
         val toast = Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
-        toast.setGravity(Gravity.CENTER_VERTICAL or Gravity.CENTER_HORIZONTAL, 0, -300)
+        toast.setGravity(Gravity.CENTER_VERTICAL or Gravity.CENTER_HORIZONTAL, 0, -200)
         toast.show()
 
-        Log.d(TAG, "score: ${currentScore}")
+        Log.d(TAG, "score: ${quizViewModel.currentScore}")
 
-        if (currentCounter == questionBank.size) {
+        if (quizViewModel.currentCounter == quizViewModel.currentSize) {
             gradeQuiz()
         }
     }
 
     private fun gradeQuiz() {
         var message: String
-        if (currentScore != 0) {
-            val grade = (currentScore.toDouble() / questionBank.size * 100).toInt()
+        if (quizViewModel.currentScore != 0) {
+            val grade = (quizViewModel.currentScore.toDouble() / quizViewModel.currentSize * 100).toInt()
             message = "You got $grade%"
         } else {
             message = "You totally flunked with 0%"
         }
         val toast = Toast.makeText(this, message, Toast.LENGTH_SHORT)
-        toast.setGravity(Gravity.CENTER_VERTICAL or Gravity.CENTER_HORIZONTAL, 0, -300)
+        toast.setGravity(Gravity.CENTER_VERTICAL or Gravity.CENTER_HORIZONTAL, 0, -200)
         toast.show()
 
-        currentScore = 0
-        currentCounter = 0
+        quizViewModel.currentScore = 0
+        quizViewModel.currentCounter = 0
     }
 
-    private fun toggleAnswerButtons() {
-        trueButton.isEnabled = !trueButton.isEnabled
-        falseButton.isEnabled = !falseButton.isEnabled
-    }
-
-    private fun toggleNavButtons() {
-        prevButton.isEnabled = !prevButton.isEnabled
-        nextButton.isEnabled = !nextButton.isEnabled
-    }
-
-    private fun toggleButtons() {
-        toggleAnswerButtons()
-        toggleNavButtons()
+    private fun setUIMode() {
+        if (quizViewModel.answerMode == true) {
+            trueButton.isEnabled = true
+            falseButton.isEnabled = true
+            nextButton.isEnabled = false
+            prevButton.isEnabled = false
+            questionTextView.isClickable = false
+        } else {
+            trueButton.isEnabled = false
+            falseButton.isEnabled = false
+            nextButton.isEnabled = true
+            prevButton.isEnabled = true
+            questionTextView.isClickable = true
+        }
     }
 }
