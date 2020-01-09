@@ -1,5 +1,6 @@
 package com.example.geoquiz02
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,6 +20,9 @@ private const val KEY_INDEX = "index"
 private const val KEY_COUNTER = "counter"
 private const val KEY_SCORE = "score"
 private const val KEY_MODE = "mode"
+
+/////key-value pair for activity intent
+private const val REQUEST_CODE_CHEAT = 0
 
 class MainActivity : AppCompatActivity() {
 
@@ -94,7 +98,8 @@ class MainActivity : AppCompatActivity() {
 //            val intent = Intent(this, CheatActivity::class.java)
             val answerIsTrue = quizViewModel.currentQuestionAnswer
             val intent = CheatActivity.newIntent(this@MainActivity, answerIsTrue)
-            startActivity(intent)
+//            startActivity(intent)
+            startActivityForResult(intent, REQUEST_CODE_CHEAT)
         }
 
         questionTextView.setOnClickListener {
@@ -104,6 +109,21 @@ class MainActivity : AppCompatActivity() {
         }
 
         updateQuestion()
+    }
+
+    override fun onActivityResult(requestCode: Int,
+                                  resultCode: Int,
+                                  data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode != Activity.RESULT_OK) {
+            return
+        }
+
+        if (requestCode == REQUEST_CODE_CHEAT) {
+            quizViewModel.isCheater =
+                data?.getBooleanExtra(EXTRA_ANSWER_SHOWN, false) ?: false
+        }
     }
 
     override fun onStart() {
@@ -158,15 +178,14 @@ class MainActivity : AppCompatActivity() {
         setUIMode()
         val correctAnswer = quizViewModel.currentQuestionAnswer
 
-        val messageResId = if (userAnswer == correctAnswer) {
-            quizViewModel.currentScore += 1
-            R.string.correct_toast
-        } else {
-            R.string.incorrect_toast
+        val messageResId = when {
+            quizViewModel.isCheater -> R.string.judgment_toast
+            userAnswer == correctAnswer -> R.string.correct_toast
+            else -> R.string.incorrect_toast
         }
 
         val toast = Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
-        toast.setGravity(Gravity.CENTER_VERTICAL or Gravity.CENTER_HORIZONTAL, 0, -200)
+        toast.setGravity(Gravity.CENTER_VERTICAL or Gravity.CENTER_HORIZONTAL, 0, -300)
         toast.show()
 
         Log.d(TAG, "score: ${quizViewModel.currentScore}")
@@ -185,7 +204,7 @@ class MainActivity : AppCompatActivity() {
             "You totally flunked with 0%"
         }
         val toast = Toast.makeText(this, message, Toast.LENGTH_SHORT)
-        toast.setGravity(Gravity.CENTER_VERTICAL or Gravity.CENTER_HORIZONTAL, 0, -200)
+        toast.setGravity(Gravity.CENTER_VERTICAL or Gravity.CENTER_HORIZONTAL, 0, -300)
         toast.show()
 
         quizViewModel.currentScore = 0
@@ -199,12 +218,14 @@ class MainActivity : AppCompatActivity() {
             nextButton.isEnabled = false
             prevButton.isEnabled = false
             questionTextView.isClickable = false
+            cheatButton.isEnabled = true
         } else {
             trueButton.isEnabled = false
             falseButton.isEnabled = false
             nextButton.isEnabled = true
             prevButton.isEnabled = true
             questionTextView.isClickable = true
+            cheatButton.isEnabled = false
         }
     }
 }

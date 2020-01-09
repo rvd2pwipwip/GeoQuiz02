@@ -30,6 +30,7 @@ class QuizViewModel : ViewModel() {
     var currentCounter = 0
     var currentScore = 0
     var answerMode = true
+    var isCheater = false
 
     val currentQuestionAnswer: Boolean
         get() = questionBank[currentIndex].answer
