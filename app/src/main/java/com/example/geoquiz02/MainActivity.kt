@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var falseButton: Button
     private lateinit var prevButton: ImageButton
     private lateinit var nextButton: ImageButton
+    private lateinit var cheatButton: Button
     private lateinit var questionTextView: TextView
 
     /////by lazy allows quizViewModel property to be a val instead of a var
@@ -63,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         falseButton = findViewById(R.id.false_button)
         prevButton = findViewById(R.id.prev_button)
         nextButton = findViewById(R.id.next_button)
+        cheatButton = findViewById(R.id.cheat_button)
         questionTextView =findViewById(R.id.question_text_view)
 
         /////set listeners on buttons
@@ -84,6 +86,10 @@ class MainActivity : AppCompatActivity() {
             quizViewModel.moveToNext()
             quizViewModel.answerMode = true
             updateQuestion()
+        }
+
+        cheatButton.setOnClickListener {
+            //start cheat activity
         }
 
         questionTextView.setOnClickListener {
@@ -132,6 +138,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateQuestion() {
         /////use currentIndex to set the question text
+//        Log.d(TAG, "Updating question text", Exception())
         val questionTextResId = quizViewModel.currentQuestionText
         questionTextView.setText(questionTextResId)
         setUIMode()
