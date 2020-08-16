@@ -171,7 +171,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkAnswer(userAnswer: Boolean) {
 
-        quizViewModel.currentCounter += 1
+        quizViewModel.currentCounter++
         Log.d(TAG, "counter: ${quizViewModel.currentCounter}")
 
         quizViewModel.answerMode = false
@@ -180,8 +180,10 @@ class MainActivity : AppCompatActivity() {
 
         val messageResId = when {
             quizViewModel.isCheater -> R.string.judgment_toast
-            userAnswer == correctAnswer -> R.string.correct_toast
-            else -> R.string.incorrect_toast
+            userAnswer == correctAnswer -> {
+                quizViewModel.currentScore++
+                R.string.correct_toast
+            } else -> R.string.incorrect_toast
         }
 
         val toast = Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
