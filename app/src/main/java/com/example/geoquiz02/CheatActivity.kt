@@ -3,6 +3,7 @@ package com.example.geoquiz02
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -23,6 +24,7 @@ class CheatActivity : AppCompatActivity() {
 
     private lateinit var answerTextView: TextView
     private lateinit var showAnswerButton: Button
+    private lateinit var apiLevelTextView: TextView
 
     private var answerIsTrue = false
 
@@ -47,6 +49,7 @@ class CheatActivity : AppCompatActivity() {
         answerIsTrue = intent.getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false)
         answerTextView = findViewById(R.id.answer_text_view)
         showAnswerButton = findViewById(R.id.show_answer_button)
+        apiLevelTextView = findViewById(R.id.api_level)
 
         showAnswerButton.setOnClickListener {
             val answerText = when {
@@ -56,6 +59,9 @@ class CheatActivity : AppCompatActivity() {
             answerTextView.setText(answerText)
             setAnswerShownResult(true)
         }
+
+        val apiLevel: String = "API Level " + Build.VERSION.SDK_INT.toString()
+        apiLevelTextView.text = apiLevel
     }
 
     /////override onSaveInstanceState(Bundle) to write the value of currentCheat to the bundle with the constant as its key
