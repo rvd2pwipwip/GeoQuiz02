@@ -14,8 +14,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.RequiresApi
-import androidx.lifecycle.ViewModelProviders
+import androidx.activity.viewModels
 
 private const val TAG = "MainActivity"
 
@@ -40,9 +39,7 @@ class MainActivity : AppCompatActivity() {
 
     /////by lazy allows quizViewModel property to be a val instead of a var
     /////calculation and assignment will not happen until the first time you access quizViewModel
-    private val quizViewModel: QuizViewModel by lazy {
-        ViewModelProviders.of(this).get(QuizViewModel::class.java)
-    }
+    private val quizViewModel: QuizViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

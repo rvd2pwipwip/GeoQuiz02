@@ -9,7 +9,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
-import androidx.lifecycle.ViewModelProviders
+import androidx.activity.viewModels
 
 private const val TAG = "CheatActivity"
 
@@ -28,11 +28,8 @@ class CheatActivity : AppCompatActivity() {
 
     private var answerIsTrue = false
 
-    /////by lazy allows quizViewModel property to be a val instead of a var
-    /////calculation and assignment will not happen until the first time you access quizViewModel
-    private val quizViewModel: QuizViewModel by lazy {
-        ViewModelProviders.of(this).get(QuizViewModel::class.java)
-    }
+    /////declare and associate ViewModel
+    private val quizViewModel: QuizViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
