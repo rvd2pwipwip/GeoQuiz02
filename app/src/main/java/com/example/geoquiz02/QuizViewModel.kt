@@ -1,6 +1,5 @@
 package com.example.geoquiz02
 
-//import android.util.Log
 import androidx.lifecycle.ViewModel
 
 //private const val TAG = "QuizViewModel"
@@ -31,6 +30,7 @@ class QuizViewModel : ViewModel() {
     var currentScore = 0
     var answerMode = true
     var isCheater = false
+    var cheatedIndexes = mutableListOf<Int>()
 
     val currentQuestionAnswer: Boolean
         get() = questionBank[currentIndex].answer

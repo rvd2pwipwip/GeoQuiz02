@@ -59,10 +59,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b359f8d0-9e6e-4cbf-97b2-7cf8ce78d38f" name="Default Changelist" comment="updated ViewModel declaration because lifecycle's view model provider was deprecated now using androidx.activity:activity-ktx:1.2.2">
+    <list default="true" id="b359f8d0-9e6e-4cbf-97b2-7cf8ce78d38f" name="Default Changelist" comment="restart challenge 6a from scratch">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/geoquiz02/CheatViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/geoquiz02/CheatActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/geoquiz02/CheatActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/geoquiz02/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/geoquiz02/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/geoquiz02/QuizViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/geoquiz02/QuizViewModel.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -453,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619092274149</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="restart challenge 6a from scratch">
+      <created>1619099382206</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1619099382206</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -486,13 +496,18 @@
     <MESSAGE value="finished chapter 6 -&gt; challenge 1 cheat status by question" />
     <MESSAGE value="finished chapter 7 -&gt; Reporting the Device's Android version" />
     <MESSAGE value="updated ViewModel declaration because lifecycle's view model provider was deprecated now using androidx.activity:activity-ktx:1.2.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated ViewModel declaration because lifecycle's view model provider was deprecated now using androidx.activity:activity-ktx:1.2.2" />
+    <MESSAGE value="restart challenge 6a from scratch" />
+    <option name="LAST_COMMIT_MESSAGE" value="restart challenge 6a from scratch" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1222" y="313" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1619009737817">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state x="-1222" y="313" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619009737817" />
+    <state x="-1181" y="274" key="#com.intellij.ide.util.MemberChooser" timestamp="1619115292221">
+      <screen x="-1920" y="23" width="1920" height="1057" />
+    </state>
+    <state x="-1181" y="274" key="#com.intellij.ide.util.MemberChooser/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619115292221" />
     <state x="-1272" y="294" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1619007686964">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
@@ -506,53 +521,70 @@
     </state>
     <state x="-1820" y="123" width="1720" height="857" key="AVDManager/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1618921870276" />
     <state x="-1820" y="123" width="1720" height="857" key="AVDManager/-1920.23.1920.1057/0.23.1630.1027@-1920.23.1920.1057" timestamp="1618923826151" />
-    <state x="-1191" y="305" key="AndroidProcessChooserDialog" timestamp="1619095877559">
+    <state x="-1191" y="305" key="AndroidProcessChooserDialog" timestamp="1619219532640">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state x="-1191" y="305" key="AndroidProcessChooserDialog/-1920.23.1920.1057/0.23.1627.1027@-1920.23.1920.1057" timestamp="1619219532640" />
     <state x="-1191" y="305" key="AndroidProcessChooserDialog/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619095877559" />
     <state x="-1191" y="305" key="AndroidProcessChooserDialog/-1920.23.1920.1057/0.23.1630.1027@-1920.23.1920.1057" timestamp="1618938854099" />
     <state x="-1697" y="128" key="CommitChangelistDialog2" timestamp="1618941673360">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state x="-1697" y="128" key="CommitChangelistDialog2/-1920.23.1920.1057/0.23.1630.1027@-1920.23.1920.1057" timestamp="1618941673360" />
-    <state width="1878" height="358" key="GridCell.Tab.0.bottom" timestamp="1619098151771">
+    <state width="1878" height="358" key="GridCell.Tab.0.bottom" timestamp="1619459856905">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1878" height="358" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619098151771" />
+    <state width="1878" height="358" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1625.1027@-1920.23.1920.1057" timestamp="1619459856905" />
+    <state width="1878" height="358" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1627.1027@-1920.23.1920.1057" timestamp="1619458552139" />
+    <state width="1878" height="202" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619187568973" />
     <state width="1878" height="274" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1630.1027@-1920.23.1920.1057" timestamp="1619005171677" />
-    <state width="1878" height="358" key="GridCell.Tab.0.center" timestamp="1619098151770">
+    <state width="1878" height="358" key="GridCell.Tab.0.center" timestamp="1619459856904">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1878" height="358" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619098151770" />
+    <state width="1878" height="358" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1625.1027@-1920.23.1920.1057" timestamp="1619459856904" />
+    <state width="1878" height="358" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1627.1027@-1920.23.1920.1057" timestamp="1619458552138" />
+    <state width="1878" height="202" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619187568972" />
     <state width="1878" height="274" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1630.1027@-1920.23.1920.1057" timestamp="1619005171676" />
-    <state width="1878" height="358" key="GridCell.Tab.0.left" timestamp="1619098151769">
+    <state width="1878" height="358" key="GridCell.Tab.0.left" timestamp="1619459856903">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1878" height="358" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619098151769" />
+    <state width="1878" height="358" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1625.1027@-1920.23.1920.1057" timestamp="1619459856903" />
+    <state width="1878" height="358" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1627.1027@-1920.23.1920.1057" timestamp="1619458552137" />
+    <state width="1878" height="202" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619187568971" />
     <state width="1878" height="274" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1630.1027@-1920.23.1920.1057" timestamp="1619005171675" />
-    <state width="1878" height="358" key="GridCell.Tab.0.right" timestamp="1619098151770">
+    <state width="1878" height="358" key="GridCell.Tab.0.right" timestamp="1619459856904">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1878" height="358" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619098151770" />
+    <state width="1878" height="358" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1625.1027@-1920.23.1920.1057" timestamp="1619459856904" />
+    <state width="1878" height="358" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1627.1027@-1920.23.1920.1057" timestamp="1619458552138" />
+    <state width="1878" height="202" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619187568972" />
     <state width="1878" height="274" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1630.1027@-1920.23.1920.1057" timestamp="1619005171677" />
-    <state width="1878" height="358" key="GridCell.Tab.1.bottom" timestamp="1619098151772">
+    <state width="1878" height="358" key="GridCell.Tab.1.bottom" timestamp="1619459856906">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state width="1878" height="358" key="GridCell.Tab.1.bottom/-1920.23.1920.1057/0.23.1625.1027@-1920.23.1920.1057" timestamp="1619459856906" />
+    <state width="1878" height="358" key="GridCell.Tab.1.bottom/-1920.23.1920.1057/0.23.1627.1027@-1920.23.1920.1057" timestamp="1619458552140" />
     <state width="1878" height="358" key="GridCell.Tab.1.bottom/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619098151772" />
     <state width="1878" height="358" key="GridCell.Tab.1.bottom/-1920.23.1920.1057/0.23.1630.1027@-1920.23.1920.1057" timestamp="1618939225524" />
-    <state width="1878" height="358" key="GridCell.Tab.1.center" timestamp="1619098151771">
+    <state width="1878" height="358" key="GridCell.Tab.1.center" timestamp="1619459856906">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state width="1878" height="358" key="GridCell.Tab.1.center/-1920.23.1920.1057/0.23.1625.1027@-1920.23.1920.1057" timestamp="1619459856906" />
+    <state width="1878" height="358" key="GridCell.Tab.1.center/-1920.23.1920.1057/0.23.1627.1027@-1920.23.1920.1057" timestamp="1619458552139" />
     <state width="1878" height="358" key="GridCell.Tab.1.center/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619098151771" />
     <state width="1878" height="358" key="GridCell.Tab.1.center/-1920.23.1920.1057/0.23.1630.1027@-1920.23.1920.1057" timestamp="1618939225523" />
-    <state width="1878" height="358" key="GridCell.Tab.1.left" timestamp="1619098151771">
+    <state width="1878" height="358" key="GridCell.Tab.1.left" timestamp="1619459856905">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state width="1878" height="358" key="GridCell.Tab.1.left/-1920.23.1920.1057/0.23.1625.1027@-1920.23.1920.1057" timestamp="1619459856905" />
+    <state width="1878" height="358" key="GridCell.Tab.1.left/-1920.23.1920.1057/0.23.1627.1027@-1920.23.1920.1057" timestamp="1619458552139" />
     <state width="1878" height="358" key="GridCell.Tab.1.left/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619098151771" />
     <state width="1878" height="358" key="GridCell.Tab.1.left/-1920.23.1920.1057/0.23.1630.1027@-1920.23.1920.1057" timestamp="1618939225523" />
-    <state width="1878" height="358" key="GridCell.Tab.1.right" timestamp="1619098151772">
+    <state width="1878" height="358" key="GridCell.Tab.1.right" timestamp="1619459856906">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state width="1878" height="358" key="GridCell.Tab.1.right/-1920.23.1920.1057/0.23.1625.1027@-1920.23.1920.1057" timestamp="1619459856906" />
+    <state width="1878" height="358" key="GridCell.Tab.1.right/-1920.23.1920.1057/0.23.1627.1027@-1920.23.1920.1057" timestamp="1619458552140" />
     <state width="1878" height="358" key="GridCell.Tab.1.right/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619098151772" />
     <state width="1878" height="358" key="GridCell.Tab.1.right/-1920.23.1920.1057/0.23.1630.1027@-1920.23.1920.1057" timestamp="1618939225523" />
     <state x="-1305" y="261" key="RollbackChangesDialog" timestamp="1619091587233">
@@ -560,25 +592,37 @@
     </state>
     <state x="-1305" y="261" key="RollbackChangesDialog/-1920.23.1920.1057/0.23.1627.1027@-1920.23.1920.1057" timestamp="1618855889680" />
     <state x="-1305" y="261" key="RollbackChangesDialog/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619091587233" />
-    <state x="-1360" y="291" key="Vcs.Push.Dialog.v2" timestamp="1619092276115">
+    <state x="-1360" y="291" key="Vcs.Push.Dialog.v2" timestamp="1619099384409">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1360" y="291" key="Vcs.Push.Dialog.v2/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619092276115" />
+    <state x="-1360" y="291" key="Vcs.Push.Dialog.v2/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619099384409" />
     <state x="-1360" y="291" key="Vcs.Push.Dialog.v2/-1920.23.1920.1057/0.23.1630.1027@-1920.23.1920.1057" timestamp="1618941676336" />
     <state x="-1291" y="402" key="edit.logcat.filter.dialog.dimensions" timestamp="1619093659578">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state x="-1291" y="402" key="edit.logcat.filter.dialog.dimensions/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619093659578" />
     <state x="-1291" y="402" key="edit.logcat.filter.dialog.dimensions/-1920.23.1920.1057/0.23.1630.1027@-1920.23.1920.1057" timestamp="1618843260957" />
-    <state width="564" height="151" key="javadoc.popup.new" timestamp="1619098542777">
+    <state width="564" height="151" key="javadoc.popup.new" timestamp="1619451239301">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="564" height="151" key="javadoc.popup.new/-1920.23.1920.1057/0.23.1627.1027@-1920.23.1920.1057" timestamp="1619098542777" />
-    <state width="564" height="151" key="javadoc.popup.new/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619095573597" />
+    <state width="564" height="151" key="javadoc.popup.new/-1920.23.1920.1057/0.23.1625.1027@-1920.23.1920.1057" timestamp="1619196001640" />
+    <state width="564" height="151" key="javadoc.popup.new/-1920.23.1920.1057/0.23.1627.1027@-1920.23.1920.1057" timestamp="1619451239301" />
+    <state width="564" height="151" key="javadoc.popup.new/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1619186421760" />
     <state width="564" height="151" key="javadoc.popup.new/-1920.23.1920.1057/0.23.1630.1027@-1920.23.1920.1057" timestamp="1619005277600" />
     <state x="-1295" y="258" width="670" height="676" key="search.everywhere.popup" timestamp="1618879019716">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state x="-1295" y="258" width="670" height="676" key="search.everywhere.popup/-1920.23.1920.1057/0.23.1629.1027@-1920.23.1920.1057" timestamp="1618879019716" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/geoquiz02/MainActivity.kt</url>
+          <line>117</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

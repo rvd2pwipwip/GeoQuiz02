@@ -1,6 +1,5 @@
 package com.example.geoquiz02
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.ActivityOptions
 import android.content.Intent
@@ -37,14 +36,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var cheatButton: Button
     private lateinit var questionTextView: TextView
 
-    /////by lazy allows quizViewModel property to be a val instead of a var
-    /////calculation and assignment will not happen until the first time you access quizViewModel
+    /////associate the activity with an instance of QuizViewModel
     private val quizViewModel: QuizViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate(Bundle?) called")
         setContentView(R.layout.activity_main)
+
+        Log.d(TAG, "Got a QuizViewModel: $quizViewModel")
 
         /////In onCreate(Bundle?), check for values. If they exist, assign them to their respective value name.
         /////If a value with the key "value" does not exist in the bundle, or if the bundle object is null, set its default value
@@ -54,16 +54,11 @@ class MainActivity : AppCompatActivity() {
         val currentScore = savedInstanceState?.getInt(KEY_SCORE, 0) ?: 0
         quizViewModel.currentScore = currentScore
 
-        val currentCounter = savedInstanceState?.getInt(KEY_SCORE,0) ?: 0
+        val currentCounter = savedInstanceState?.getInt(KEY_COUNTER,0) ?: 0
         quizViewModel.currentCounter = currentCounter
 
         val currentMode = savedInstanceState?.getBoolean(KEY_MODE,true) ?: true
         quizViewModel.answerMode = currentMode
-
-//        /////associate the activity with an instance of QuizViewModel
-//        val provider: ViewModelProvider = ViewModelProviders.of(this)
-//        val quizViewModel = provider.get(QuizViewModel::class.java)
-        Log.d(TAG, "Got a QuizViewModel: $quizViewModel")
 
         /////retrieve and assign inflated ui elements
         trueButton = findViewById(R.id.true_button)
@@ -95,11 +90,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         cheatButton.setOnClickListener { view -> //lambda uses argument (view) so it is named (instead of it)
-            //start cheat activity
-//            val intent = Intent(this, CheatActivity::class.java)
             val answerIsTrue = quizViewModel.currentQuestionAnswer
-            val intent = CheatActivity.newIntent(this@MainActivity, answerIsTrue)
-//            startActivityForResult(intent, REQUEST_CODE_CHEAT)
+            val cheatIndex = quizViewModel.currentIndex
+            val intent = CheatActivity.newIntent(this@MainActivity, answerIsTrue, cheatIndex)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 val options = ActivityOptions.makeClipRevealAnimation(view, 0, 0, view.width, view.height)
                 startActivityForResult(intent, REQUEST_CODE_CHEAT, options.toBundle())
@@ -127,9 +120,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (requestCode == REQUEST_CODE_CHEAT) {
-            quizViewModel.isCheater =
-                data?.getBooleanExtra(EXTRA_ANSWER_SHOWN, false) ?: false
+//            quizViewModel.isCheater =
+//                data?.getBooleanExtra(EXTRA_ANSWER_SHOWN, false) ?: false
+            quizViewModel.cheatedIndexes.add(data?.getIntExtra(EXTRA_CHEATED_INDEX, -1) ?: -1)
         }
+        Log.d(TAG, "onActivityResult received cheatedIndex ${data?.getIntExtra(EXTRA_CHEATED_INDEX, -1) ?: -1}")
     }
 
     override fun onStart() {
@@ -169,7 +164,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateQuestion() {
         /////use currentIndex to set the question text
-//        Log.d(TAG, "Updating question text", Exception())
         val questionTextResId = quizViewModel.currentQuestionText
         questionTextView.setText(questionTextResId)
         setUIMode()
@@ -185,7 +179,7 @@ class MainActivity : AppCompatActivity() {
         val correctAnswer = quizViewModel.currentQuestionAnswer
 
         val messageResId = when {
-            quizViewModel.isCheater -> R.string.judgment_toast
+            quizViewModel.cheatedIndexes.contains(quizViewModel.currentIndex) -> R.string.judgment_toast
             userAnswer == correctAnswer -> {
                 quizViewModel.currentScore++
                 R.string.correct_toast
